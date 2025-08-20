@@ -1112,3 +1112,6 @@ scap-security-guide-0.1.77/tables/tables-ubuntu1804-all.html
 scap-security-guide-0.1.77/tables/tables-ubuntu2004-all.html
 scap-security-guide-0.1.77/tables/tables-ubuntu2204-all.html
 scap-security-guide-0.1.77/tables/tables-ubuntu2404-all.html
+
+# Large files that exceed GitHub's 100MB limit
+scap-security-guide-*.zip
