@@ -1,0 +1,39 @@
+# Compliance Agent Configuration
+# This file contains default settings for the compliance agent
+
+# API Configuration
+api_base_url: "http://10.2.110.246:8003"
+api_token: ""
+
+# Scanning Configuration
+scan_interval: 3600  # 1 hour in seconds
+default_profile: "xccdf_org.ssgproject.content_profile_cis"
+
+# Available profiles (examples)
+available_profiles:
+  - "xccdf_org.ssgproject.content_profile_cis"
+  - "xccdf_org.ssgproject.content_profile_cis_level1_server"
+  - "xccdf_org.ssgproject.content_profile_cis_level2_server"
+  - "xccdf_org.ssgproject.content_profile_standard"
+  - "xccdf_org.ssgproject.content_profile_stig"
+
+# Datastream mappings for different OS
+datastreams:
+  ubuntu22: "ssg-ubuntu2204-ds.xml"
+  ubuntu20: "ssg-ubuntu2004-ds.xml"
+  debian12: "ssg-debian12-ds.xml"
+  rhel9: "ssg-rhel9-ds.xml"
+  rhel8: "ssg-rhel8-ds.xml"
+  centos9: "ssg-centos9-ds.xml"
+
+# Agent Configuration
+agent_port: 8080
+log_level: "INFO"
+max_scan_history: 100
+
+# Retry Configuration
+max_retries: 3
+retry_delay: 60  # seconds
+
+# Health Check Configuration
+health_check_interval: 30  # seconds

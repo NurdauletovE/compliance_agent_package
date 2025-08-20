@@ -1,0 +1,8 @@
+{
+  "agent.py": "298438c83bc623a14b3587361ae17b5f1d4c34fcb414670a94577d88c8b2b776",
+  "Dockerfile": "fd37ae7c6caf4c0e06462cd06d195e0f2da322b9180a201dae968feae32ab92e",
+  "docker-compose.yml": "fc8c17926da3c65951640b65ef63436d79c5bec75a7eeed8d5159a4e99dfa258",
+  "deploy.sh": "9a08d367164d29c5a9517e882d701f2c0e8a96542a3483e38630c2cbcb186bf9",
+  "requirements.txt": "8211c1eae9399b7bd906b9f99aeb943ba21eb939bbc47e508fbf0fc320fec25a",
+  "config/agent.yaml": "906908e9af2c5aa5367f27e05a11451034880c8a55e6fb0a912f64068ac22a6f"
+}

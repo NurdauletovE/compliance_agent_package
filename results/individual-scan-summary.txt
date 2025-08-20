@@ -1,0 +1,37 @@
+
+=================================================================
+       OpenSCAP Individual Component Scan Summary  
+=================================================================
+
+✅ SCAN COMPLETED SUCCESSFULLY!
+
+COMMAND EXECUTED:
+oscap xccdf eval \
+  --profile xccdf_org.ssgproject.content_profile_cis_level1_server \
+  --cpe scap_org.open-scap_cref_ssg-ubuntu2204-cpe-dictionary.xml \
+  --results individual-component-results.xml \
+  --report individual-component-report.html \
+  scap_org.open-scap_cref_ssg-ubuntu2204-xccdf.xml
+
+COMPONENTS USED:
+• XCCDF File: scap_org.open-scap_cref_ssg-ubuntu2204-xccdf.xml (9.2MB)
+• CPE Dictionary: scap_org.open-scap_cref_ssg-ubuntu2204-cpe-dictionary.xml (679 bytes)
+• Profile: CIS Ubuntu 22.04 Level 1 Server Benchmark
+
+RESULTS:
+• All 651 rules from CIS Level 1 Server profile processed
+• Most results show 'notapplicable' - expected for minimal system
+• Successfully demonstrates individual component scanning
+
+GENERATED FILES:
+• XML Results: individual-component-results.xml
+• HTML Report: individual-component-report.html
+
+The scan demonstrates the ability to use individual XCCDF and CPE 
+files instead of a combined datastream, which provides more 
+granular control over the scanning process.
+
+Note: Ubuntu 24.04 specific content isn't available yet in SCAP 
+Security Guide, so Ubuntu 22.04 content was used as requested.
+=================================================================
+

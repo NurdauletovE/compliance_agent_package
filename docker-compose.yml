@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  compliance-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: compliance-agent
+    environment:
+      # API Configuration
+      COMPLIANCE_API_URL: "${COMPLIANCE_API_URL:-http://host.docker.internal:8002}"
+      COMPLIANCE_API_TOKEN: "${COMPLIANCE_API_TOKEN:-}"
+      
+      # Scanning Configuration
+      SCAN_INTERVAL: "${SCAN_INTERVAL:-3600}"  # 1 hour
+      DEFAULT_PROFILE: "${DEFAULT_PROFILE:-xccdf_org.ssgproject.content_profile_cis}"
+      
+      # Agent Configuration
+      AGENT_PORT: "8080"
+      LOG_LEVEL: "${LOG_LEVEL:-INFO}"
+      
+    ports:
+      - "${AGENT_PORT:-8080}:8080"
+    
+    volumes:
+      # Persistent storage for logs and results
+      - agent_logs:/app/logs
+      - agent_results:/app/results
+      
+      # Optional: Mount custom SCAP content
+      # - ./scap-content:/app/content
+      
+      # Optional: Mount host system for deep scanning (requires privileged mode)
+      # - /:/host:ro
+      
+    # Required for system scanning capabilities
+    privileged: true
+    
+    # Alternative to privileged mode (more secure but limited scanning)
+    # cap_add:
+    #   - SYS_ADMIN
+    #   - DAC_READ_SEARCH
+    # security_opt:
+    #   - apparmor:unconfined
+    
+    restart: unless-stopped
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    
+    networks:
+      - agent-network
+
+volumes:
+  agent_logs:
+    driver: local
+  agent_results:
+    driver: local
+
+networks:
+  agent-network:
+    driver: bridge

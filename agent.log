@@ -1,0 +1,20 @@
+nohup: ignoring input
+Starting OpenSCAP Compliance Agent for testing...
+API will be available at: http://localhost:8081
+Available endpoints:
+  GET  /health - Health check
+  GET  /scan/profiles - List available profiles
+  POST /scan/oscap - Trigger OpenSCAP scan
+
+2025-08-20 15:59:46 [info     ] Starting Compliance Agent      config={'api_base_url': 'http://localhost:8002', 'api_token': None, 'scan_interval': 0, 'default_profile': 'xccdf_org.ssgproject.content_profile_cis_level1_server', 'agent_port': 8081, 'content_path': './content/'}
+INFO:     Started server process [85293]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)
+INFO:     127.0.0.1:35352 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34322 - "GET /scan/profiles HTTP/1.1" 200 OK
+2025-08-20 16:01:27 [info     ] Found datastream               path=/home/agent/compliance_agent_package/scap-security-guide-0.1.77/ssg-ubuntu2404-ds.xml
+2025-08-20 16:01:27 [info     ] Starting OpenSCAP scan         datastream=ssg-ubuntu2404-ds.xml profile=xccdf_org.ssgproject.content_profile_cis_level1_server scan_id=2dadee42-1453-41e8-afe4-ef45a833cf68
+INFO:     127.0.0.1:41306 - "POST /scan/oscap?profile=xccdf_org.ssgproject.content_profile_cis_level1_server HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40620 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51438 - "GET /scan/profiles HTTP/1.1" 200 OK
